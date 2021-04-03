@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="unoptimized|x64">
+      <Configuration>unoptimized</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9AC25ED9-062D-1350-4F6B-C4F5BB14F1A4}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>webserver</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='unoptimized|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='unoptimized|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\build\debug_windows\</OutDir>
+    <IntDir>..\..\build\intermediate\debug_windows\webserver\</IntDir>
+    <TargetName>webserver</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\build\release_windows\</OutDir>
+    <IntDir>..\..\build\intermediate\release_windows\webserver\</IntDir>
+    <TargetName>webserver</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='unoptimized|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\build\unoptimized_windows\</OutDir>
+    <IntDir>..\..\build\intermediate\unoptimized_windows\webserver\</IntDir>
+    <TargetName>webserver</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>webserver/stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>CODE;WEBSERVER_EXPORTS;BOOST_BIMAP_DISABLE_SERIALIZATION;BOOST_MULTI_INDEX_DISABLE_SERIALIZATION;BOOST_INTERPROCESS_SHARED_DIR_FUNC;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;BOOST_ALL_DYN_LINK;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;_DEBUG;DEBUG_EX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;..\TM;..\TM\trunk;..\..\shared\boost;..\..\shared\libxml2\include;..\..\shared\rapidjson\include;..\..\shared\antlr3\Cpp\include;..\..\shared\htmlcxx;..\..\shared\python\Include;..\..\shared;..\..\shared\icu\include;..\..\shared\curl\include;..\..\shared\postgresql\src\include;..\..\shared\postgresql\src\interfaces\libpq;..\..\shared\openssl\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj /wd4251 /wd4275 /wd4800 /wd4290 /Zc:referenceBinding %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;htmlcxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\build\debug_windows;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>..\..\build\debug_windows\webserver.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>webserver/stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PreprocessorDefinitions>CODE;WEBSERVER_EXPORTS;BOOST_BIMAP_DISABLE_SERIALIZATION;BOOST_MULTI_INDEX_DISABLE_SERIALIZATION;BOOST_INTERPROCESS_SHARED_DIR_FUNC;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;BOOST_ALL_DYN_LINK;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;..\TM;..\TM\trunk;..\..\shared\boost;..\..\shared\libxml2\include;..\..\shared\rapidjson\include;..\..\shared\antlr3\Cpp\include;..\..\shared\htmlcxx;..\..\shared\python\Include;..\..\shared;..\..\shared\icu\include;..\..\shared\curl\include;..\..\shared\postgresql\src\include;..\..\shared\postgresql\src\interfaces\libpq;..\..\shared\openssl\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj /wd4251 /wd4275 /wd4800 /wd4290 /Zc:referenceBinding %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;htmlcxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\build\release_windows;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>..\..\build\release_windows\webserver.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='unoptimized|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>webserver/stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PreprocessorDefinitions>CODE;WEBSERVER_EXPORTS;BOOST_BIMAP_DISABLE_SERIALIZATION;BOOST_MULTI_INDEX_DISABLE_SERIALIZATION;BOOST_INTERPROCESS_SHARED_DIR_FUNC;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;BOOST_ALL_DYN_LINK;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;NDEBUG;DEBUG_EX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;..\TM;..\TM\trunk;..\..\shared\boost;..\..\shared\libxml2\include;..\..\shared\rapidjson\include;..\..\shared\antlr3\Cpp\include;..\..\shared\htmlcxx;..\..\shared\python\Include;..\..\shared;..\..\shared\icu\include;..\..\shared\curl\include;..\..\shared\postgresql\src\include;..\..\shared\postgresql\src\interfaces\libpq;..\..\shared\openssl\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj /wd4251 /wd4275 /wd4800 /wd4290 /Zc:referenceBinding %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;htmlcxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\build\unoptimized_windows;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>..\..\build\unoptimized_windows\webserver.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="HTTP\cookie.h" />
+    <ClInclude Include="HTTP\http_connection.h" />
+    <ClInclude Include="HTTP\http_parser.h" />
+    <ClInclude Include="HTTP\http_protocol.h" />
+    <ClInclude Include="HTTP\http_request.h" />
+    <ClInclude Include="HTTP\http_request_handler.h" />
+    <ClInclude Include="HTTP\http_response.h" />
+    <ClInclude Include="WS\ws_connection.h" />
+    <ClInclude Include="WS\ws_proto_impl.h" />
+    <ClInclude Include="WS\ws_protocol.h" />
+    <ClInclude Include="connection.h" />
+    <ClInclude Include="expimp.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="stdhdr.h" />
+    <ClInclude Include="webserver.h" />
+    <ClInclude Include="webserver_params.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HTTP\cookie.cpp" />
+    <ClCompile Include="HTTP\http_connection.cpp" />
+    <ClCompile Include="HTTP\http_parser.cpp" />
+    <ClCompile Include="HTTP\http_request.cpp" />
+    <ClCompile Include="HTTP\http_response.cpp" />
+    <ClCompile Include="WS\ws_connection.cpp" />
+    <ClCompile Include="WS\ws_proto_impl.cpp" />
+    <ClCompile Include="connection.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='unoptimized|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="tests\cookie_test.cpp" />
+    <ClCompile Include="webserver.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\common\common.vcxproj">
+      <Project>{AEFEE3F6-9AA0-0ECD-835B-22216F9C951D}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\core\core.vcxproj">
+      <Project>{4E40957C-3A77-960D-E363-7C10CF79120F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\datatypes\datatypes.vcxproj">
+      <Project>{F4A2C9C3-600D-7E3A-A94B-2FE015F55B8F}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

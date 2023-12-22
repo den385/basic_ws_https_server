@@ -62,8 +62,6 @@ namespace net
 	// Forming of secure context
 	// server.key - server private key (searched for beside pa7 configuration files)
 	// server.crt - server certificate
-	// see detailed cipher description on project wiki (might be outdated):
-	// -> https://phabricator.megaputer.ru/w/pa7/webapi/lowlevelapi/ssl/
 	void WebServer::setup_ssl()
 	{
 		context_->set_options(
